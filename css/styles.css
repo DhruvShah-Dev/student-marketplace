@@ -1,58 +1,75 @@
 /* General Styles */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #1e1e1e; /* Dark background */
-    color: #d4d4d4; /* Light text color */
+    background-color: #1e1e1e;
+    color: #d4d4d4;
     margin: 0;
     padding: 0;
     display: flex;
     height: 100vh;
+    flex-direction: column;
 }
 
+/* Container to hold Sidebar and Main Content */
 .container {
     display: flex;
     flex-grow: 1;
+    margin-top: 60px;
 }
 
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
-    background-color: rgba(51, 51, 51, 1.0); /* Translucent dark background */
+    background-color: #333;
     color: #d4d4d4;
     padding: 20px;
     height: 100%;
     box-sizing: border-box;
-    position: fixed; /* Fixed sidebar on the left */
+    position: fixed;
     top: 0;
     bottom: 0;
-    left: -250px; /* Initially hide the sidebar */
-    transition: left 0.3s ease; /* Slide-in effect */
-    backdrop-filter: blur(8px); /* Add blur for a frosted glass effect */
+    left: 0;
+    z-index: 999;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.sidebar.open {
-    left: 0; /* Slide in */
+.sidebar.closed {
+    transform: translateX(-250px); /* Slide out to the left */
 }
 
-.logout {
-    position: absolute;
-    bottom: 20px;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    text-align: center;
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed; /* Always stay at the top-left */
+    top: 15px; /* Spacing from the top */
+    left: 15px; /* Spacing from the left */
+    z-index: 1000; /* Higher than sidebar but lower than modal */
+    background-color: #333;
+    color: #d4d4d4;
+    border: none;
+    padding: 5px 10px; /* Smaller size */
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: auto; /* Ensure it doesn't stretch */
+    height: auto; /* Keep it compact */
 }
 
-.sidebar-header {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #9cdcfe; /* Light blue color */
-    text-align: center;
+.sidebar.closed ~ .sidebar-toggle {
+    left: 15px; /* Stay in the same top-left position */
 }
 
+.sidebar-toggle:hover {
+    background-color: #444;
+}
+
+/* Sidebar Navigation */
 .sidebar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: 50px; /* Add spacing below the toggle button */
 }
 
 .sidebar-nav li {
@@ -73,90 +90,18 @@ body {
     border-radius: 5px;
 }
 
-/* Search Input */
-.sidebar-search {
-    margin-bottom: 20px;
+.sidebar-nav li a.active {
+    background-color: #555;
+    font-weight: bold;
+    border-left: 4px solid #d4d4d4;
 }
 
-#search {
-    width: 100%;
-    padding: 10px;
-    background-color: #2d2d2d; /* Dark background for input */
-    border: 1px solid #444;
-    border-radius: 5px;
-    color: #d4d4d4;
-    font-size: 1rem;
-}
-
-#search::placeholder {
-    color: #808080; /* Placeholder text color */
-}
-
-#search + .search-suggestions {
-    margin-top: 5px;
-    background-color: #2d2d2d;
-    padding: 5px;
-    border-radius: 5px;
-    display: none;
+/* Logout Button */
+.logout {
     position: absolute;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Main Content */
-main {
-    margin-left: 0; /* Default margin when sidebar is closed */
-    padding: 20px;
-    background-color: #1e1e1e; /* Match the VSCode dark theme */
-    flex-grow: 1;
-    overflow-y: auto;
-    transition: margin-left 0.3s ease; /* Smooth transition */
-}
-
-.sidebar.open + main {
-    margin-left: 250px; /* Adjust margin when the sidebar is open */
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
-}
-
-header {
-    text-align: center;
-    color: #9cdcfe;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* Menu Toggle (Hamburger Icon) */
-/* Sidebar Menu Toggle */
-.menu-toggle {
-    position: absolute;
-    top: 20px;
-    right: -40px; /* Adjust this to align with sidebar edge */
-    font-size: 2rem;
-    cursor: pointer;
-    color: #d4d4d4;
-    transition: right 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar.open .menu-toggle {
-    right: 10px; /* Bring the icon inside the sidebar */
-    transform: rotate(180deg); /* Rotate the arrow when open */
-}
-
-/* Update icon appearance for open/close state */
-.menu-toggle:after {
-    content: "\276F"; /* Right arrow by default */
-}
-
-.sidebar.open .menu-toggle:after {
-    content: "\276E"; /* Change to left arrow when open */
-}
-
-/* Style for the Logout Link */
-.sidebar-nav .logout {
-    position: absolute; /* Stick it to the bottom */
-    bottom: 20px;
-    width: 100%; /* Center-align inside the sidebar */
+    bottom: 100px;
+    left: 0;
+    width: 100%; /* Full width of the sidebar */
     text-align: center;
 }
 
@@ -164,62 +109,150 @@ header {
     color: #d4d4d4;
     text-decoration: none;
     padding: 10px;
-    background-color: #3e3e3e; /* Optional: Add a background to distinguish it */
+    background-color: #3e3e3e;
     border-radius: 5px;
+    display: block;
     transition: background 0.3s ease;
+    margin: 0 auto;
+    width: 90%; /* Center the button and slightly reduce width */
 }
 
 .sidebar-nav .logout a:hover {
-    background-color: #555; /* Optional: Darker hover effect */
+    background-color: #555;
 }
 
-h2 {
+/* Main Content */
+main {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    flex-grow: 1;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.closed ~ main {
+    margin-left: 0; /* Adjust when sidebar is closed */
+}
+
+/* Overlay Styles */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1001; /* Higher than other elements */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Modal Box */
+.modal {
+    background-color: #333;
     color: #d4d4d4;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-/* Featured Items */
-.item {
-    background-color: #2d2d2d;
-    border: 1px solid #444;
+    padding: 20px;
     border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    color: #d4d4d4;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Relative to the overlay */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for better visibility */
+    transform: translate(-50%, -50%);
+    top: 50%; /* Vertically centered */
+    left: 50%; /* Horizontally centered */
+    margin: 0; /* Remove default margins */
+    animation: fadeIn 0.3s ease; /* Smooth appearance */
 }
 
-.item p {
-    margin: 0;
+/* Optional: Add a fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Center the form within the modal */
+#login-form, #sign-up-form {
+    width: 100%; /* Ensure the form takes the full width of the modal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 1.8rem;
+    color: #f1f1f1;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Inputs and Buttons */
+input[type="text"], input[type="password"], button {
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #2a2a2a; /* Slightly lighter than matte black */
+    color: #f1f1f1;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #444;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+/* Toggle Links */
+.toggle {
+    color: #f1f1f1;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.toggle:hover {
+    color: #bbb;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #333;
+    color: #d4d4d4;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Footer Styles */
-footer {
+.site-footer {
     background-color: #333;
     color: #d4d4d4;
+    padding: 10px;
     text-align: center;
-    padding: 15px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #9cdcfe;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    main {
-        margin-left: 200px;
-    }
 }
