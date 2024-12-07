@@ -5,40 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Marketplace</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <header class="site-header">
+        <h1>Student Marketplace</h1>
+    </header>
+
+    <button class="sidebar-toggle">&lt;</button>
+
     <div class="container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <span class="menu-toggle">&#9776;</span> <!-- Menu icon -->
-                <h2>Student Marketplace</h2>
+                <h2>Menu</h2>
             </div>
             <ul class="sidebar-nav">
-                <ul class="sidebar-nav">
-                    <li><a href="#">Login/Signup</a></li>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Cart</a></li>
-                    <li class="logout"><a href="#">Log Out</a></li>
-                </ul>
-                
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Space for future additions</a></li>
+                <li><a href="#" id="login-signup-btn">Login/Signup</a></li>
+                <div class="logout">
+                    <a href="#">Log Out</a>
+                </div>
             </ul>
         </aside>
-
-        <!-- Main Content -->
         <main>
-            <header>
-                <h1>Welcome to the Student Marketplace</h1>
-            </header>
-            <section>
-                <h2>Featured Items</h2>
-                <p>Check out the latest items available in the marketplace.</p>
-            </section>
+            <div class="item">
+                <h3>Featured Item 1</h3>
+                <p>This is a description of the first featured item.</p>
+            </div>
+            <div class="item">
+                <h3>Featured Item 2</h3>
+                <p>This is a description of the second featured item.</p>
+            </div>
         </main>
     </div>
+
+    <div id="overlay" class="overlay">
+        <div class="modal">
+            <div class="close-btn" id="close-btn">&times;</div>
+            <div id="login-form">
+                <h2>Login</h2>
+                <form>
+                    <input type="text" placeholder="Username" required><br>
+                    <input type="password" placeholder="Password" required><br>
+                    <button type="submit">Login</button>
+                    <p>Not registered? <span id="sign-up-toggle" class="toggle">Sign up</span></p>
+                </form>
+            </div>
+            <div id="sign-up-form" style="display: none;">
+                <h2>Sign Up</h2>
+                <form>
+                    <input type="text" placeholder="Username" required><br>
+                    <input type="password" placeholder="Password" required><br>
+                    <button type="submit">Sign Up</button>
+                    <p>Already have an account? <span id="login-toggle" class="toggle">Login</span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Student Marketplace. All rights reserved.</p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
