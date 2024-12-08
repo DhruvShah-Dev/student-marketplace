@@ -14,28 +14,27 @@ body {
 .container {
     display: flex;
     flex-grow: 1;
-    margin-top: 60px;
+    margin-top: 70px;
 }
 
 /* Sidebar Styles */
 .sidebar {
-    width: 250px;
+    width: 200px;
     background-color: #333;
     color: #d4d4d4;
     padding: 20px;
     height: 100%;
-    box-sizing: border-box;
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     z-index: 999;
     transition: transform 0.3s ease;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.closed {
-    transform: translateX(-250px); /* Slide out to the left */
+    transform: translateX(-250px);
 }
 
 /* Sidebar Toggle Button */
@@ -47,17 +46,13 @@ body {
     background-color: #333;
     color: #d4d4d4;
     border: none;
-    padding: 5px 10px; /* Smaller size */
-    font-size: 1rem;
+    padding: 8px 12px; /* Slightly more compact */
+    font-size: 1.2rem; /* Make font a bit smaller to fit better */
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: auto; /* Ensure it doesn't stretch */
     height: auto; /* Keep it compact */
-}
-
-.sidebar.closed ~ .sidebar-toggle {
-    left: 15px; /* Stay in the same top-left position */
 }
 
 .sidebar-toggle:hover {
@@ -68,8 +63,7 @@ body {
 .sidebar-nav {
     list-style: none;
     padding: 0;
-    margin: 0;
-    margin-top: 50px; /* Add spacing below the toggle button */
+    margin: 50px 0 0;
 }
 
 .sidebar-nav li {
@@ -101,23 +95,23 @@ body {
     position: absolute;
     bottom: 100px;
     left: 0;
-    width: 100%; /* Full width of the sidebar */
+    width: 100%;
     text-align: center;
 }
 
-.sidebar-nav .logout a {
+.logout a {
     color: #d4d4d4;
     text-decoration: none;
     padding: 10px;
     background-color: #3e3e3e;
     border-radius: 5px;
+    width: 90%;
+    margin: 0 auto;
     display: block;
     transition: background 0.3s ease;
-    margin: 0 auto;
-    width: 90%; /* Center the button and slightly reduce width */
 }
 
-.sidebar-nav .logout a:hover {
+.logout a:hover {
     background-color: #555;
 }
 
@@ -132,22 +126,22 @@ main {
 }
 
 .sidebar.closed ~ main {
-    margin-left: 0; /* Adjust when sidebar is closed */
+    margin-left: 0;
 }
 
 /* Overlay Styles */
 .overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    z-index: 1001; /* Higher than other elements */
-    display: flex; /* Flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Modal Box */
@@ -158,32 +152,23 @@ main {
     border-radius: 5px;
     width: 300px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Relative to the overlay */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for better visibility */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
     transform: translate(-50%, -50%);
-    top: 50%; /* Vertically centered */
-    left: 50%; /* Horizontally centered */
-    margin: 0; /* Remove default margins */
-    animation: fadeIn 0.3s ease; /* Smooth appearance */
+    top: 50%;
+    left: 50%;
+    animation: fadeIn 0.3s ease;
 }
 
-/* Optional: Add a fade-in animation */
+/* Fade-in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Center the form within the modal */
 #login-form, #sign-up-form {
-    width: 100%; /* Ensure the form takes the full width of the modal */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -200,13 +185,13 @@ main {
 }
 
 /* Inputs and Buttons */
-input[type="text"], input[type="password"], button {
+input[type="text"], input[type="password"], input[type="email"], select, button {
     padding: 12px;
     margin: 10px 0;
     border: none;
     border-radius: 5px;
     width: 90%;
-    background-color: #2a2a2a; /* Slightly lighter than matte black */
+    background-color: #2a2a2a;
     color: #f1f1f1;
     font-size: 1rem;
 }
@@ -223,13 +208,14 @@ button:hover {
 
 /* Toggle Links */
 .toggle {
-    color: #f1f1f1;
-    text-decoration: underline;
+    color: #f1f1f1 !important;
+    text-decoration: none;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .toggle:hover {
-    color: #bbb;
+    color: #bbb !important;
 }
 
 /* Header Styles */
@@ -255,4 +241,21 @@ button:hover {
     color: #d4d4d4;
     padding: 10px;
     text-align: center;
+}
+
+/* Style for "SIGN UP" link inside form */
+.sign-up-link {
+    background-color: #444;
+    color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block; /* Button-like behavior */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sign-up-link:hover {
+    background-color: #666;
 }

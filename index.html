@@ -25,7 +25,8 @@
                 <li><a href="#">Cart</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Space for future additions</a></li>
-                <li><a href="#" id="login-signup-btn">Login/Signup</a></li>
+                <li><a href="sign-up.html">Sign Up</a></li> <!-- Updated to link to the new Sign Up page -->
+                <li><a href="#" id="login-signup-btn">Login</a></li>
                 <div class="logout">
                     <a href="#">Log Out</a>
                 </div>
@@ -43,7 +44,7 @@
         </main>
     </div>
 
-    <div id="overlay" class="overlay">
+    <div id="overlay" class="overlay" style="display: none;"> <!-- Ensure display is set to none -->
         <div class="modal">
             <div class="close-btn" id="close-btn">&times;</div>
             <div id="login-form">
@@ -52,16 +53,7 @@
                     <input type="text" placeholder="Username" required><br>
                     <input type="password" placeholder="Password" required><br>
                     <button type="submit">Login</button>
-                    <p>Not registered? <span id="sign-up-toggle" class="toggle">Sign up</span></p>
-                </form>
-            </div>
-            <div id="sign-up-form" style="display: none;">
-                <h2>Sign Up</h2>
-                <form>
-                    <input type="text" placeholder="Username" required><br>
-                    <input type="password" placeholder="Password" required><br>
-                    <button type="submit">Sign Up</button>
-                    <p>Already have an account? <span id="login-toggle" class="toggle">Login</span></p>
+                    <p>Not registered? <span class="sign-up-link"><a href="sign-up.html" style="color: inherit; text-decoration: none;">SIGN UP</a></span></p>
                 </form>
             </div>
         </div>
