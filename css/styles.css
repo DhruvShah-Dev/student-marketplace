@@ -63,7 +63,7 @@ body {
 .sidebar-nav {
     list-style: none;
     padding: 0;
-    margin: 50px 0 0;
+    margin: 75px 0 0;
 }
 
 .sidebar-nav li {
@@ -103,7 +103,7 @@ body {
     color: #d4d4d4;
     text-decoration: none;
     padding: 10px;
-    background-color: #3e3e3e;
+    background-color: #c0392b;
     border-radius: 5px;
     width: 90%;
     margin: 0 auto;
@@ -177,7 +177,7 @@ main {
 /* Close Button */
 .close-btn {
     font-size: 1.8rem;
-    color: #f1f1f1;
+    color: #c0392b;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -233,6 +233,34 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Header right section */
+.header-right {
+    position: absolute;
+    right: 20px; /* Space from the right edge */
+    top: 15px;  /* Align vertically */
+}
+
+/* Account Button */
+#account-btn {
+    background-color: #444;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    width: 40px; /* Adjust size for a round button */
+    height: 40px; /* Same as width for perfect circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem; /* Size of the icon */
+    transition: background-color 0.3s ease;
+    padding: 0; /* Remove extra padding for a clean circle */
+}
+
+#account-btn:hover {
+    background-color: #555;
 }
 
 /* Footer Styles */

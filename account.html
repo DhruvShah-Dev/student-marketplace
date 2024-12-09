@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- General styles -->
+    <link rel="stylesheet" href="css/account.css"> <!-- Account-specific styles -->
+</head>
+<body>
+    <header class="site-header">
+        <h1>Account</h1>
+    </header>
+
+    <div class="account-container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+            <div class="user-info">
+                <h2 id="user-name">John Doe</h2>
+                <p id="user-email">john.doe@university.edu</p>
+                <a id="edit-profile-btn" href="edit-profile.html" class="edit-profile-link">Edit Profile</a>
+            </div>
+        </section>
+
+        <!-- Order History Section -->
+        <section class="order-history">
+            <h2>Order History</h2>
+            <ul id="order-list">
+                <li>Item 1 - $20.00</li>
+                <li>Item 2 - $15.00</li>
+                <li>Item 3 - $30.00</li>
+            </ul>
+        </section>
+
+        <!-- Logout Section -->
+        <button id="logout-btn" class="logout-btn">Log Out</button>
+    </div>
+
+    <script src="js/account.js"></script>
+</body>
+</html>

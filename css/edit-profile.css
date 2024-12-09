@@ -1,0 +1,105 @@
+/* General Layout */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-header {
+    background-color: #333;
+    color: #d4d4d4;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.edit-profile-container {
+    margin-top: 80px;
+    width: 80%;
+    max-width: 800px;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #d4d4d4;
+}
+
+textarea {
+    resize: none;
+}
+
+.profile-picture-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#profile-pic-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    display: block;
+    margin: 10px auto;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#save-btn {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#save-btn:hover {
+    background-color: #45a049;
+}
+
+#cancel-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#cancel-btn:hover {
+    background-color: #c0392b;
+}
