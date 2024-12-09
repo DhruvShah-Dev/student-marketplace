@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- General styles -->
+    <link rel="stylesheet" href="css/edit-profile.css"> <!-- Edit Profile-specific styles -->
+</head>
+<body>
+    <header class="site-header">
+        <h1>Edit Profile</h1>
+    </header>
+
+    <div class="edit-profile-container">
+        <!-- Profile Picture Section -->
+        <section class="profile-picture-section">
+            <h2>Profile Picture</h2>
+            <img id="profile-pic-preview" src="https://via.placeholder.com/100" alt="Profile Picture Preview">
+            <input type="file" id="profile-pic-input" accept="image/*">
+        </section>
+
+        <!-- Form for User Details -->
+        <form id="edit-profile-form">
+            <label for="user-name">Name:</label>
+            <input type="text" id="user-name" value="John Doe" required>
+
+            <label for="birth-date">Birth Date:</label>
+            <input type="date" id="birth-date" value="1995-01-01" required>
+
+            <label for="bio">Bio:</label>
+            <textarea id="bio" rows="4" placeholder="Write a short bio...">I love programming!</textarea>
+
+            <label for="department">Department:</label>
+            <select id="department">
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Buttons -->
+            <div class="form-buttons">
+                <button type="submit" id="save-btn">Save</button>
+                <button type="button" id="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/edit-profile.js"></script>
+</body>
+</html>

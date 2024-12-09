@@ -1,0 +1,138 @@
+/* General Layout */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #333;
+    color: #d4d4d4;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Account Page Container */
+.account-container {
+    margin-top: 80px;
+    width: 80%;
+    max-width: 800px;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #444;
+}
+
+.user-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+#edit-profile-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Edit Profile Link (Styled as a Button) */
+.edit-profile-link {
+    display: inline-block;
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.edit-profile-link:hover {
+    background-color: #666;
+}
+
+
+#edit-profile-btn:hover {
+    background-color: #666;
+}
+
+/* Order History */
+.order-history {
+    margin: 20px 0;
+}
+
+.order-history h2 {
+    font-size: 1.3rem;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#order-list {
+    list-style: none;
+    padding: 0;
+}
+
+#order-list li {
+    padding: 10px;
+    background-color: #333;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
